@@ -20,7 +20,7 @@
         }
         @font-face{
             font-family: "ongul";
-            src: url("/font/ongul.ttf");
+            src: url("./font/ongul.ttf");
         }
 .cardBox{
     display: flex;
@@ -36,7 +36,7 @@
 .card1{
     width: 200px;
     height: 400px;
-    background-image: url("/img/card.png");
+    background-image: url("./img/card.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -44,7 +44,7 @@
 .card2{
     width: 200px;
     height: 400px;
-     background-image: url("/img/card.png");
+     background-image: url("./img/card.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -52,7 +52,7 @@
 .card3{
     width: 200px;
     height: 400px;
-     background-image: url("/img/card.png");
+     background-image: url("./img/card.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -64,7 +64,7 @@
     gap: 30px;
      
 }
-.inminiBox1{
+.inMiniBox1{
     position: absolute;
     top: 20%;
     right: 10%;
@@ -79,7 +79,7 @@
     font-family: "ongul";
     -webkit-text-stroke: 3px rgb(255, 134, 154);
 }
-.inminiBox2{
+.inMiniBox2{
     position: absolute;
     top: 35%;
     right: 10%;
@@ -89,7 +89,7 @@
     border-radius: 30px;
     border: 5px solid rgb(255, 134, 154);
 }
-.headfont{
+.headFont{
     font-family: "ongul";
     -webkit-text-stroke: 3px rgb(255, 134, 154);
     color: rgb(255, 249, 250);
@@ -102,7 +102,7 @@
     right: 10%;
 }
 .str{
-    background-image: url("/img/str.png");
+    background-image: url("./img/str.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -125,7 +125,7 @@
     left: 30px;
     top: 10px;
 }
-.kesan{
+.keSan{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,7 +236,7 @@ img{
     z-index: -8; 
 }
 .imageSanrio{
-    background-image: url("/img/sanrio.png.png");
+    background-image: url("./img/sanrio.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -251,20 +251,20 @@ img{
     </style> 
 </head>
 <body>
-<div class="headfont">CALCULATOR</div>
+<div class="headFont">CALCULATOR</div>
 
  <div class="boxBackground"></div>
  <div class="imageSanrio"></div>
  <div class="str"></div>
 
 <div class="all">
-    <div class="kesan">
+    <div class="keSan">
     <div class="outBox">
         <div class="highlight"></div>
         <div id="dis"><p class="text"></p></div>
     <div class="nu">
         <div class="num1 yellow" id="ac" data-numbers="AC">AC</div>
-        <div class="num1 yellow"data-numbers="back"><img src="/img/Print.png" alt="딸기"></div>
+        <div class="num1 yellow"data-numbers="back"><img src="img/Print.png" alt="딸기"></div>
         <div class="num1 yellow"data-numbers="%">%</div>
         <div class="num1 yellow"data-numbers="-">-</div>
         <div class="num1" data-numbers="7">7</div>
@@ -295,8 +295,8 @@ img{
 </div>
 
 <div class="miniBox">
-    <div class="inminiBox1">오늘의 마이멜로디</div>
-    <div class="inminiBox2"></div>
+    <div class="inMiniBox1">오늘의 마이멜로디</div>
+    <div class="inMiniBox2"></div>
 </div>
     
     <div id="dis2"></div>
