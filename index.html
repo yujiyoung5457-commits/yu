@@ -31,6 +31,9 @@
 }
 .leftBox{
     margin-top: 90px;
+    /* 왼쪽 계산기 위치: 이 값만 바꾸면 왼쪽만 위·아래로 이동합니다. */
+    position: relative;
+    top: -50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +41,9 @@
 }
 .rightBox{
     margin-top: -90px;
+    /* 오른쪽 제목·카드 위치: 이 값만 바꾸면 오른쪽만 위·아래로 이동합니다. */
+    position: relative;
+    top: 50px;
     display: flex;
     /* gap: 90px; */
     /* justify-content: center; */
@@ -61,36 +67,43 @@
     width: 200px;
     height: 400px;
     z-index: 50;
-    transition: 1s;
+    perspective: 1000px;
+}
+.cardInner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.card1:hover .cardInner,
+.card2:hover .cardInner,
+.card3:hover .cardInner{
+    transform: rotateY(180deg);
+}
+.cardFront, .cardBack{
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.cardFront{
     background-image: url("./img/card.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
-.card2:hover{
-    width: 200px;
-    height: 400px;
-    background-image: url("./img/back.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+.cardBack{
+    transform: rotateY(180deg);
 }
-.card1:hover{
-    width: 200px;
-    height: 400px;
+.card1 .cardBack{
     background-image: url("./img/back1.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
-
-.card3:hover{
-    width: 200px;
-    height: 400px;
+.card2 .cardBack{
+    background-image: url("./img/back.png");
+}
+.card3 .cardBack{
     background-image: url("./img/back3.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 .miniBox{
     display: flex;
@@ -139,6 +152,7 @@
 }
 .all{
     position: relative;
+    
 }
 .highlight{
     width: 100px;
@@ -279,7 +293,6 @@ img{
         display: block;
         overflow: hidden;
     }
-
     .all {
         display: block;
         width: 100%;
@@ -336,13 +349,30 @@ img{
 
     .str,
     .imageSanrio,
-    .num1 img,
     .inminiBox1,
     .inminiBox2,
     .cardBox,
     #dis2 {
         display: none;
     }
+
+    /* 두 번째 노란 버튼 안에 Print.png를 버튼 크기에 맞춰 표시 */
+    .num1[data-numbers="back"] {
+        position: relative;
+    }
+
+    .num1[data-numbers="back"] .print {
+        display: block;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: contain;
+    }
+
+    
 }
 
     </style> 
@@ -363,7 +393,7 @@ img{
         <div id="dis"><p class="text"></p></div>
     <div class="nu">
         <div class="num1 yellow" id="ac" data-numbers="AC">AC</div>
-        <div class="num1 yellow"data-numbers="back"><img src="img/Print.png" alt="딸기"></div>
+        <div class="num1 yellow"data-numbers="back"><img class=" print" src="img/Print.png" alt="딸기"></div>
         <div class="num1 yellow"data-numbers="%">%</div>
         <div class="num1 yellow"data-numbers="-">-</div>
         <div class="num1" data-numbers="7">7</div>
@@ -394,9 +424,15 @@ img{
       <div class="inminiBox1">오늘의 마이멜로디</div>
       <div class="inminiBox2">
               <div class="cardBox">
-        <div class="card1"></div>
-        <div class="card2"></div>
-        <div class="card3"></div>
+        <div class="card1">
+          <div class="cardInner"><div class="cardFront"></div><div class="cardBack"></div></div>
+        </div>
+        <div class="card2">
+          <div class="cardInner"><div class="cardFront"></div><div class="cardBack"></div></div>
+        </div>
+        <div class="card3">
+          <div class="cardInner"><div class="cardFront"></div><div class="cardBack"></div></div>
+        </div>
               </div>
       </div>
   </div>
